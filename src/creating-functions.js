@@ -7,9 +7,16 @@
 // 2      | 3
 //
 // TODO: write code below
+function incrementNumber(number) {
+  number++
+  return number
+}
+
+const result = incrementNumber(1)
+console.log(result)
 
 // 2. Define a function that capitalises any string
-
+//
 // Example Input and Output:
 //
 // Input | Output
@@ -18,6 +25,12 @@
 // Hello | Hello
 
 // TODO: write code below
+function capitalises(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+const capString = capitalises('hello')
+console.log(capString)
 
 // 3. Define a function that takes any person's name and returns it with a smiley :)!
 // Remember to make the name capitalized!
@@ -29,7 +42,14 @@
 // Aiyana | Hi, Aiyana :)
 //
 // TODO: write code below
+function nameWithSmiley(string) {
+  const capName = capitalises(string)
+  const newString = `Hi, ${capName} :)`
+  return newString
+}
 
+const smiley = nameWithSmiley('ingeborg')
+console.log(smiley)
 // 4. Define a function that takes an array of data and returns how many strings are in the array.
 //
 // Example Input and Output:
@@ -41,6 +61,20 @@
 // [1, 'edward']        | 1
 //
 // TODO: write code below
+function stringCount(array) {
+  let stringCount = 0
+  for (let i = 0; i <= array.length; i++) {
+    if (typeof array[i] === 'string') stringCount++
+  }
+  return stringCount
+}
+
+const testArray = []
+testArray.push('edward')
+testArray.push('aiyana')
+testArray.push(1)
+const countResult = stringCount(testArray)
+console.log(countResult)
 
 // 5. Define a function that takes an object and adds a property 'edward' to the object if it doesn't yet exist with a default value of 'amazing'
 //
@@ -52,12 +86,24 @@
 // { edward: 'fabulous'}    | { edward: 'fabulous'}
 //
 // TODO: write code below
+function addProperty(object) {
+  if ('edward' in object) {
+    return object
+  }
+
+  object.edward = 'amazing'
+
+  return object
+}
+
+const testObject = addProperty({ aiyana: 'fantastic' })
+console.log(testObject)
 
 // TODO: change each undefined below to be the name of the functions you defined
 module.exports = {
-  a: undefined, // 1. change undefined to be the name of the function you defined for the first TODO
-  b: undefined, // 2. change undefined to be the name of the function you defined for the second TODO)
-  c: undefined, // etc
-  d: undefined,
-  e: undefined
+  a: incrementNumber, // 1. change undefined to be the name of the function you defined for the first TODO
+  b: capitalises, // 2. change undefined to be the name of the function you defined for the second TODO)
+  c: nameWithSmiley, // etc
+  d: stringCount,
+  e: addProperty
 }

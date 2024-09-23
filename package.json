@@ -25,5 +25,8 @@
     "jasmine": "^4.6.0",
     "nodemon": "^2.0.13",
     "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
   }
 }
